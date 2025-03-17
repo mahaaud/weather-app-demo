@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 
 export function SavedLocations({ onClickSavedLocation, onRemoveSavedLocation, onLoadAllSavedLocations, savedLocations }: any) {
 
-    const [displayLocations, setDisplayLocations] = useState([]);
+    const [displayLocations, setDisplayLocations] = useState<React.JSX.Element[]>([]);
     const savedLocationsComponent = useRef();
 
     const loadAllSavedLocations = async () => {
@@ -48,13 +48,7 @@ export function SavedLocations({ onClickSavedLocation, onRemoveSavedLocation, on
 
     useEffect(() => {
         if (savedLocations) {
-            if (savedLocations.length > 0) {
-                savedLocationsComponent.current.classList.remove('hidden');
-            } else {
-                savedLocationsComponent.current.classList.add('hidden');
-            }
-
-            const savedItems = [];
+            const savedItems: React.JSX.Element[] = [];
             for (const savedItem of savedLocations) {
                 savedItems.push(printSavedLocations(savedItem));
             }
@@ -63,7 +57,7 @@ export function SavedLocations({ onClickSavedLocation, onRemoveSavedLocation, on
     }, [savedLocations]);
 
     return (
-        <section className="grid mt-3 hidden" ref={savedLocationsComponent}>
+        <section className={`grid mt-3 hidden${savedLocations?.length > 0 ? "" : " hidden"}`}>
             <div className="shadow-xs mx-auto w-full rounded-[5px] bg-white p-4 dark:bg-dark-2">
                 {displayLocations}
             </div>
