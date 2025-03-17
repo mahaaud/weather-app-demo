@@ -27,9 +27,12 @@ export function Search({ onSearchChange, tempUnit, onTempUnitChange }: any): any
     };
 
     let useClickOutside = (handler: any) => {
-        let domNode = useRef();
+        let domNode: any = useRef();
         useEffect(() => {
             let maybeHandler = (event: any) => {
+                if (!domNode.current) {
+                    return;
+                }
                 if (!domNode.current.contains(event.target)) {
                     handler();
                 }
