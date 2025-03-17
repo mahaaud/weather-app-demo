@@ -11,7 +11,7 @@ const RAPID_GEO_API_OPTIONS: any = {
     },
 };
 
-export async function fetchAllWeatherData(lat: number, long: number) {
+export async function fetchAllWeatherData(lat: number, long: number): Promise<[any, any]> {
     try {
         let [weatherPromise, forcastPromise] = await Promise.all([
             fetch(
@@ -22,11 +22,12 @@ export async function fetchAllWeatherData(lat: number, long: number) {
             ),
         ]);
 
-        const weatherResponse = await weatherPromise.json();
-        const forcastResponse = await forcastPromise.json();
+        const weatherResponse: any = await weatherPromise.json();
+        const forcastResponse: any = await forcastPromise.json();
         return [weatherResponse, forcastResponse];
     } catch (error) {
         console.error(error);
+        return ["", ""];
     }
 }
 

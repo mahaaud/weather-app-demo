@@ -1,9 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { removeLocation } from "src/app/services/savedlocation.service";
 
-export default async function handle(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
+export default async function handle(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'DELETE') {
         const { cityId } = req.query;
+        if (!cityId) {
+            return;
+        }
 
         try {
             await removeLocation(+cityId);

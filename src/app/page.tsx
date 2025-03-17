@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchAllWeatherData, fetchCities, fetchWeatherData } from "./services/weather.service";
+import { fetchAllWeatherData } from "./services/weather.service";
 import { Search } from "./components/search";
 import { TodayWeather } from "./components/todayweather";
 import { SavedLocations } from "./components/savedlocations";

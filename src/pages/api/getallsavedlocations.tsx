@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAllLocations } from "src/app/services/savedlocation.service";
 
-export default async function handle(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
+export default async function handle(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
         try {
             const savedLocations = await getAllLocations();

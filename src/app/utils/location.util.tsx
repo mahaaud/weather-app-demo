@@ -1,6 +1,7 @@
 export default function getCurrentUserLocation(): PlaceLocation {
 
 	let location: PlaceLocation = {
+		id: 0,
 		name: "",
 		latitude: 0,
 		longtitude: 0
