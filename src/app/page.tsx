@@ -61,7 +61,7 @@ export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between pt-24 pb-24 ps-12 pe-12">
 			<div className="container mx-auto">
-				<p className="text-4xl font-bold bg-gradient-to-l from-cyan-50 to-cyan-200 bg-clip-text text-transparent text-center">The Weather App</p>
+				<p className="text-4xl font-bold bg-gradient-to-l from-cyan-50 to-cyan-200 bg-clip-text text-transparent text-center">Parit's The Weather App</p>
 				<Search onSearchChange={searchChangeHandler} tempUnit={temperatureUnit} onTempUnitChange={onTempUnitStateChange} />
 				<TodayWeather data={todayWeather} forecastData={forecastWeather} currentTempUnit={temperatureUnit} onSetSaveLocation={onSetSavedLocation} onLoadAllSavedLocations={loadAllSavedLocationsHandler} />
 				<SavedLocations onClickSavedLocation={searchChangeHandler} onRemoveSavedLocation={onRemoveSavedLocationHandler} onLoadAllSavedLocations={loadAllSavedLocationsHandler} savedLocations={savedLocations}  />
