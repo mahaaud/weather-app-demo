@@ -9,8 +9,8 @@ pipeline {
             steps {
                 sh '''
                 curl -X POST https://softdebut.appsecure.website/api/v1/cicd/scan/sast/newscan \
-                -H 'Content-Type: application/json' \
-                -H 'X-Api-Key: $API_KEY' \
+                -H "Content-Type: application/json" \
+                -H "X-Api-Key: ${API_KEY}" \
                 -d '{ "assetID": "67d7e326285d410d921d9f6d" }'
                 '''
             }
