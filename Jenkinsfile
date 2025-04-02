@@ -1,12 +1,11 @@
 pipeline {
     agent any
 
-    environment {
-        API_KEY = 'oxs_-HAH_yq1uS3PE_8w2Mmfw6-z7nVFpAfQLRQa-s2HNDg'
-    }
-
     stages {
         stage('Trigger SAST Scan') {
+            environment {
+                API_KEY = 'oxs_-HAH_yq1uS3PE_8w2Mmfw6-z7nVFpAfQLRQa-s2HNDg'
+            }
             steps {
                 sh '''
                 curl -X POST https://softdebut.appsecure.website/api/v1/cicd/scan/sast/newscan \
