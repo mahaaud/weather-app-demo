@@ -6,8 +6,8 @@ pipeline {
     }
 
     stages {
-        steps {
-            stage('Trigger SAST Scan') {
+        stage('Trigger SAST Scan') {
+            steps {
                 sh '''
                 curl -X POST https://softdebut.appsecure.website/api/v1/cicd/scan/sast/newscan \
                 -H 'Content-Type: application/json' \
